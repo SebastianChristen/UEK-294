@@ -2,7 +2,7 @@ import Button from "../components/Button.js"
 
 
 
-export default function ButtonComponent() {
+export default function ButtonPage() {
   return (
     <div>
       <Button text="Default" variant="default" />
