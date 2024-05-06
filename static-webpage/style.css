@@ -1,0 +1,171 @@
+:root {
+    --link-color: #33a7ff;
+    --background-color: white;
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    overflow-x: hidden;
+    height: 100vh;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+body>header {
+    position: sticky;
+    top: 0;
+    left: 0;
+    background: white;
+    text-align: center;
+    box-shadow: 0 1px 6px 0 rgb(0 0 0 / 20%);
+    z-index: 1;
+}
+
+body>header>h1 {
+    margin: 0;
+    padding: 0.2em;
+}
+
+a {
+    text-decoration: none;
+    color: var(--link-color)
+}
+
+@media only screen and (min-width: 1200px) {
+    nav {
+        position: fixed;
+        left: 0;
+        height: 100vh;
+        box-shadow: 0 1px 1px 0 rgb(0 0 0 / 20%);
+        background: white;
+    }
+}
+
+main {
+    padding: 1em;
+    margin: 0 auto;
+    max-width: 720px;
+}
+
+ul {
+    list-style-type: none;
+    padding-left: 0;
+    margin: 1em;
+}
+
+ul li {
+    margin-bottom: 0.2em;
+    padding-left: 1em;
+}
+
+section, article, fieldset {
+    scroll-margin-top: 60px;
+}
+
+img, video {
+    width: 100%;
+    height: auto;
+}
+
+h1 {
+    font-size: 2em;
+}
+
+h2 {
+    font-size: 1.5em;
+}
+
+h3 {
+    font-size: 1.3em;
+}
+
+h4 {
+    font-size: 1em;
+}
+
+h5 {
+    font-size: 0.8em;
+}
+
+h6 {
+    font-size: 0.7em;
+}
+
+thead, tfoot {
+    background: lightgray;
+    text-align: left;
+}
+
+th, td {
+    padding: 0.5em;
+    border: 1px solid grey;
+}
+
+fieldset {
+    border: 1px solid lightgray;
+}
+
+fieldset p {
+    display: flex;
+    flex-direction: column;
+}
+
+fieldset small {
+    padding: 0.2em;
+}
+
+
+label {
+    padding: 0.5em 0.5em 0.5em 0.0em;
+}
+
+input, textarea, select {
+    padding: 0.5em;
+    font-family: inherit;
+}
+
+input[type='color'] {
+    padding: 0;
+}
+
+textarea {
+    resize: vertical;
+}
+
+button {
+    position: relative;
+    margin: 0.2em;
+    border: 0;
+    padding: 0.5em;
+    box-shadow: 0 1px 1px 0 rgb(0 0 0 / 20%);
+    cursor: pointer;
+    border-radius: 0.25rem;
+    min-height: 2em;
+}
+
+button:hover {
+    background: darkgray;
+}
+
+@keyframes spinner {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.spinner:before {
+    content: '';
+    box-sizing: border-box;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 20px;
+    height: 20px;
+    margin-top: -10px;
+    margin-left: -10px;
+    border-radius: 50%;
+    border: 2px solid #ccc;
+    border-top-color: #000;
+    animation: spinner .6s linear infinite;
+}

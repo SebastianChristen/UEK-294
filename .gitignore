@@ -1,20 +1,20 @@
 # dependencies
 
-/node_modules
+*/node_modules
 
 # testing
 
-/coverage
+*/coverage
 
 # production
 
-/build
+*/build
 
 # misc
 
-.DS_Store
+*.DS_Store
 
-.env
+*.env
 
 npm-debug.log*
 
@@ -24,8 +24,8 @@ yarn-error.log*
 
 # next.js
 
-.next
+*.next
 
 # jetbrains
 
-.idea/
+*.idea/
