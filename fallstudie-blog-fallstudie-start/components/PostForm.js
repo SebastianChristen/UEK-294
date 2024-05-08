@@ -34,6 +34,9 @@ export default function PostForm({ postToEdit }) {
 
     const handleChange = (e) => {
 
+        const inputValue = e.target.value
+        setPost(inputValue);
+
     }
 
     const handleSubmit = async (e) => {
@@ -61,6 +64,20 @@ export default function PostForm({ postToEdit }) {
     return (
         <div className={styles.postform}>
             <form onSubmit={handleSubmit}>
+
+                    <fieldset>
+        <label>Blog title</label>
+        <input type="text" name="blogtitle" value={post.title} onChange={handleChange} />
+        { errors.blogtitle && <div className={styles.error}>{errors.blogtitle}</div>}
+
+        <label>Blog text</label>
+        <input type="text" name="blogtext" value={post.text} onChange={handleChange} />
+        { errors.blogtext && <div className={styles.error}>{errors.blogtext}</div>}
+        </fieldset>
+
+
+
+        
 
                 <button disabled={isLoading}>
                     {isLoading ? "...Loading" : "Submit"}
