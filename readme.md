@@ -14,4 +14,4 @@ in the beginning of a new project
 
 
   TODO: Hooks: finish Shoppinglist
-  
+  TODO: Hoosk-2: Searchlist.js

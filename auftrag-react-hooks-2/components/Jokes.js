@@ -29,9 +29,7 @@ export default function GetRandomJoke() {
           <div key={joke._id}>
             <div>
               <h2>{joke.setup}</h2>
-
               <p>{joke.punchline}</p>
-
               <button onClick={getJoke}>get joke</button>
             </div>
           </div>
