@@ -23,8 +23,6 @@ function validateModel(post) {
   } else {
     isValid = true;
   }
-  // Hier solltest du den Post validieren, das errors Objekt erstellen
-  // und isValid auf false setzen, falls nötig
 
   return { errors, isValid };
 }
@@ -40,19 +38,18 @@ export default function PostForm({ postToEdit }) {
     if (!postToEdit) return;
     const loadPost = async () => {
       const response = await fetch(`${URL}/${postToEdit}`);
-
-      //setpost(post) === postdata
       const postData = await response.json();
-      setPost({ ...postData, id: postToEdit }); // Stelle sicher, dass die ID im post-Objekt gesetzt ist
+      //eventuell auch setPost({ ...postData, id: postToEdit });
+      setPost(postData);
     };
     loadPost();
   }, [postToEdit]);
 
   const handleChange = (e) => {
+    //Hier ist das mit den mehreren Variablen
     const inputValue = e.target.value;
     const inputName = e.target.name;
-    // Hier ist das mit den mehreren Variablen
-    //Wichtig: "...post,", sonst macht er die beiden sachen net zusammen
+     //Wichtig: "...post,", sonst macht er die beiden sachen net zusammen
     setPost({ ...post, [inputName]: inputValue });
   };
 
@@ -69,7 +66,6 @@ export default function PostForm({ postToEdit }) {
     }
 
     const data = await response.json();
-
     console.log(data);
   }
 
@@ -87,11 +83,11 @@ export default function PostForm({ postToEdit }) {
     }
 
     if (post.id) {
-      // Post updaten per fetch und mit setPost aktualisieren
       console.log("I am now sending your goofy ahh post...");
-
-      // --- das AWAIT hier ist unglaublich wichtig!!!!!!
+      // das AWAIT hier ist wichtig, damit es wartet.
       await patchTheFuckingThing(post);
+      // hier wennes fertig ist geht's wieder auf die startseite zurück
+      router.push("/")
     } else {
       // Post erstellen per fetch und mit router.push auf die Postdetail Seite weiterleiten
       //TODO
