@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useEffect } from "react";
 //import styles from "./AllPosts.module.css";
 import Link from "next/link";
+import DeletePost from "./DeletePost";
 
 export default function SinglePost({ id }) {
   const [blog, setBlog] = useState([]);
@@ -28,6 +29,7 @@ export default function SinglePost({ id }) {
         <p> modified at: {blog.updatedAt}</p>
       </div>
       <Link href={blog.id + "/edit"}>Edit this blog</Link>
+      <DeletePost idToDelete={id}/>
     </div>
   );
 }
