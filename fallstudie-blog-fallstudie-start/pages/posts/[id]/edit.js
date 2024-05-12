@@ -8,7 +8,7 @@ export default function PostsEditPage() {
     return (
         <div>
             <h1>Edit post with id: {id}</h1>
-            <PostForm></PostForm>
+            <PostForm postToEdit={id}></PostForm>
         </div>
     )
 }
