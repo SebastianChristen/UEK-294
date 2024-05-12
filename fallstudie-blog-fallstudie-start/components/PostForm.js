@@ -49,14 +49,30 @@ export default function PostForm({ postToEdit }) {
     //Hier ist das mit den mehreren Variablen
     const inputValue = e.target.value;
     const inputName = e.target.name;
-     //Wichtig: "...post,", sonst macht er die beiden sachen net zusammen
+    //Wichtig: "...post,", sonst macht er die beiden sachen net zusammen
     setPost({ ...post, [inputName]: inputValue });
   };
 
-  // hier patch, also einfach updaten, da ich ja nicht ein neuen post machen will
+  // ------------------ hier patch, also einfach updaten, da ich ja nicht ein neuen post machen will
   async function patchTheFuckingThing(post) {
     const response = await fetch(URL + "/" + postToEdit, {
       method: "PATCH",
+      headers: { "content-type": "application/json" },
+      body: JSON.stringify(post),
+    });
+
+    if (!response.ok) {
+      return Promise.reject(response.statusText);
+    }
+
+    const data = await response.json();
+    console.log(data);
+  }
+
+  // ------------------ POST -------------------------
+  async function postTheFuckingThing(post) {
+    const response = await fetch(URL, {
+      method: "POST",
       headers: { "content-type": "application/json" },
       body: JSON.stringify(post),
     });
@@ -87,10 +103,10 @@ export default function PostForm({ postToEdit }) {
       // das AWAIT hier ist wichtig, damit es wartet.
       await patchTheFuckingThing(post);
       // hier wennes fertig ist geht's wieder auf die startseite zurück
-      router.push("/")
+      router.push("/");
     } else {
-      // Post erstellen per fetch und mit router.push auf die Postdetail Seite weiterleiten
-      //TODO
+      // hier geht es zu POST
+      await postTheFuckingThing(post);
     }
     setIsLoading(false);
   };
