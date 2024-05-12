@@ -102,13 +102,13 @@ export default function PostForm({ postToEdit }) {
       console.log("I am now sending your goofy ahh post...");
       // das AWAIT hier ist wichtig, damit es wartet.
       await patchTheFuckingThing(post);
-      // hier wennes fertig ist geht's wieder auf die startseite zurück
-      router.push("/");
     } else {
       // hier geht es zu POST
       await postTheFuckingThing(post);
     }
     setIsLoading(false);
+    // hier wennes fertig ist geht's wieder auf die startseite zurück
+    router.push("/");
   };
 
   return (
