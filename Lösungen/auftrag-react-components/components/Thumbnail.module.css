@@ -1,0 +1,10 @@
+.thumbnail {
+   display: grid;
+   grid-template-columns: auto 1fr;
+   max-width: 720px; 
+   grid-gap: 1em;
+}
+
+.thumbnail h2 {
+    margin-top: 0;
+}

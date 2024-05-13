@@ -1,0 +1,30 @@
+.button {
+    cursor: pointer;
+    color: #fff;
+    border-radius: 0.25rem;
+    padding: 0.5em;
+    margin: 0.25em;
+    border: 0px;
+}
+
+.button.default {
+    background: blue; 
+}
+
+.button.success {
+    background: green; 
+}
+
+.button.danger {
+    background: red; 
+}
+
+.button.warning {
+    background: yellow; 
+    color: black;
+}
+
+.button.info {
+    background: cyan; 
+    color: black;
+}

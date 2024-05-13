@@ -1,0 +1,16 @@
+/* components/Navigation.module.css */
+.navigation {
+    position: sticky;
+    top: 0;
+    left: 0;
+    background: lightblue;
+}
+
+.navigation ul li {
+    padding: 0.5em;
+}
+
+.navigation ul li a:hover {
+    background: blue;
+    color: white;
+}
