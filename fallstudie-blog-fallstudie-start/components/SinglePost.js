@@ -2,12 +2,21 @@ import { useState } from "react";
 import { useEffect } from "react";
 //import styles from "./AllPosts.module.css";
 import Link from "next/link";
-import DeletePost from "./DeletePost";
+import { deletePost } from "@/lib/api/posts";
+import { useRouter } from "next/router";
 
 export default function SinglePost({ id }) {
   const [blog, setBlog] = useState([]);
+  const router = useRouter();
+  const isSignedIn = useRouter();
+  const session = useRouter();
 
   const URL = `http://localhost:9001/api/posts`;
+
+  async function handleClick() {
+    await deletePost(id, session.token);
+    router.push("/");
+  }
 
   useEffect(() => {
     if (!id) return;
@@ -28,8 +37,13 @@ export default function SinglePost({ id }) {
         <p> created at: {blog.createdAt}</p>
         <p> modified at: {blog.updatedAt}</p>
       </div>
-      <Link href={blog.id + "/edit"}>Edit this blog</Link>
-      <DeletePost idToDelete={id}/>
+
+      {isSignedIn && (
+        <div>
+          <Link href={blog.id + "/edit"}>Edit this blog</Link>
+          <button onClick={handleClick}>Delete</button>
+        </div>
+      )}
     </div>
   );
 }

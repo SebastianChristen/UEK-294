@@ -2,6 +2,7 @@ import { createPost, updatePost } from "@/lib/api/posts";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import styles from "./PostForm.module.css";
+import { useSession } from "@/lib/hooks/session";
 
 const defaultModel = {
   title: "",
@@ -28,6 +29,7 @@ function validateModel(post) {
 }
 
 export default function PostForm({ postToEdit }) {
+  const session = useSession();
   const router = useRouter();
   const [isLoading, setIsLoading] = useState(false);
   const [errors, setErrors] = useState(defaultModel);
@@ -53,38 +55,6 @@ export default function PostForm({ postToEdit }) {
     setPost({ ...post, [inputName]: inputValue });
   };
 
-  // ------------------ hier patch, also einfach updaten, da ich ja nicht ein neuen post machen will
-  async function patchTheFuckingThing(post) {
-    const response = await fetch(URL + "/" + postToEdit, {
-      method: "PATCH",
-      headers: { "content-type": "application/json" },
-      body: JSON.stringify(post),
-    });
-
-    if (!response.ok) {
-      return Promise.reject(response.statusText);
-    }
-
-    const data = await response.json();
-    console.log(data);
-  }
-
-  // ------------------ POST -------------------------
-  async function postTheFuckingThing(post) {
-    const response = await fetch(URL, {
-      method: "POST",
-      headers: { "content-type": "application/json" },
-      body: JSON.stringify(post),
-    });
-
-    if (!response.ok) {
-      return Promise.reject(response.statusText);
-    }
-
-    const data = await response.json();
-    console.log(data);
-  }
-
   const handleSubmit = async (e) => {
     e.preventDefault();
     setIsLoading(true);
@@ -101,10 +71,9 @@ export default function PostForm({ postToEdit }) {
     if (post.id) {
       console.log("I am now sending your goofy ahh post...");
       // das AWAIT hier ist wichtig, damit es wartet.
-      await patchTheFuckingThing(post);
+      await updatePost(post, session.token);
     } else {
-      // hier geht es zu POST
-      await postTheFuckingThing(post);
+      await createPost(post, session.token);
     }
     setIsLoading(false);
     // hier wennes fertig ist geht's wieder auf die startseite zurück
