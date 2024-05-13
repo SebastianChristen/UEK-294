@@ -9,3 +9,11 @@ export default function PostsCreatePage() {
         </div>
     ) 
 }
+
+export async function getStaticProps(context) {
+    return {
+        props: {
+            secured: true
+        }
+    }
+}
