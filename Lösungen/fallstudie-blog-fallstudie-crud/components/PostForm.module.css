@@ -1,0 +1,39 @@
+.postform {}
+
+.error {
+    color: red;
+    margin-top: 0.5em;
+}
+
+.postform form {
+    border: none;
+    min-width: 320px;
+    align-self: center;
+}
+
+.postform fieldset {
+    border: none;
+    padding: 0.5em;
+    display: flex;
+    flex-direction: column;
+}
+
+.postform label {
+    border: none;
+    padding-bottom: 0.5em;
+}
+
+.postform input {
+    padding: 0.5em;
+}
+
+.postform textarea {
+    padding: 0.5em;
+    resize: vertical;
+    min-height: 320px;
+    font: inherit;
+}
+
+.postform button {
+    margin-left: 0.5em;
+}

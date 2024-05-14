@@ -17,6 +17,6 @@ in the beginning of a new project
   TODO: Hoosk-2: Searchlist.js
 
 
-  schaltfläche ausblenden wenn nicht angemeledt
+mehr Lösungen müssen noch folgen und in den "Lösungen"-Ordner getan werden.
 
-  
+Immer schauen: Funktionen aus /lib übernehmen!!!

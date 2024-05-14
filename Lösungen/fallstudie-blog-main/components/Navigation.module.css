@@ -1,0 +1,42 @@
+.navigation {
+    display: flex;
+    flex-direction: column;
+}
+
+
+.navigation {
+    width: 100%;
+}
+
+.navigation ul {
+    list-style-type: none;
+    display: flex;
+    align-self: flex-end;
+    margin-left: auto;
+}
+
+.open {
+    display: flex !important;
+    justify-content: center;
+}
+
+@media only screen and (min-width: 320px) {
+    .navigation ul {
+        flex-direction: column;
+        display: none;
+        text-align: right;
+    }
+
+    .navigation ul li a {
+        align-self: flex-end;
+    }
+
+    .navigation div {
+        margin-left: auto;
+        font-size: 2em;
+    }
+}
+
+.navigation li {
+    padding: 1em;
+}

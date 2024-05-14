@@ -1,0 +1,12 @@
+.admin {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.admin button {
+    cursor: pointer;
+    font-weight: bold;
+    background: darkgray;
+    padding: 0.5em;
+    margin: 0 0.5em 0 0.5em;
+}
